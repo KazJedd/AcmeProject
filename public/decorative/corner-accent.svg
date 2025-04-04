@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .corner-line {
+      stroke: #00ff88;
+      stroke-width: 1.5;
+      fill: none;
+    }
+    .corner-accent {
+      stroke: #00ccff;
+      stroke-width: 0.8;
+      fill: none;
+    }
+    .corner-dot {
+      fill: #ff00ff;
+    }
+  </style>
+  
+  <!-- Main corner lines -->
+  <path d="M 10 10 L 10 40 M 10 10 L 40 10" class="corner-line" />
+  
+  <!-- Accent elements -->
+  <path d="M 10 15 L 15 10" class="corner-accent" />
+  <path d="M 10 25 L 25 10" class="corner-accent" />
+  <path d="M 10 35 L 35 10" class="corner-accent" />
+  
+  <!-- Dots -->
+  <circle cx="10" cy="10" r="2" class="corner-dot" />
+  <circle cx="10" cy="25" r="1.5" class="corner-dot" />
+  <circle cx="10" cy="40" r="1.5" class="corner-dot" />
+  <circle cx="25" cy="10" r="1.5" class="corner-dot" />
+  <circle cx="40" cy="10" r="1.5" class="corner-dot" />
+</svg> 

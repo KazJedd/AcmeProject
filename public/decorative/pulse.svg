@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .pulse {
+      stroke: #00ff88;
+      stroke-width: 1;
+      fill: none;
+      stroke-dasharray: 90;
+      stroke-dashoffset: 90;
+      animation: dash 3s linear infinite;
+    }
+    .pulse2 {
+      stroke: #00ccff;
+      stroke-width: 1;
+      fill: none;
+      stroke-dasharray: 120;
+      stroke-dashoffset: 120;
+      animation: dash 4s linear infinite;
+      animation-delay: 0.5s;
+    }
+    .pulse3 {
+      stroke: #ff00ff;
+      stroke-width: 0.5;
+      fill: none;
+      stroke-dasharray: 150;
+      stroke-dashoffset: 150;
+      animation: dash 5s linear infinite;
+      animation-delay: 1s;
+    }
+    @keyframes dash {
+      to {
+        stroke-dashoffset: -90;
+      }
+    }
+    .glow {
+      filter: drop-shadow(0 0 2px #00ff88);
+    }
+  </style>
+  
+  <g class="glow">
+    <circle cx="100" cy="100" r="30" class="pulse" />
+    <circle cx="100" cy="100" r="60" class="pulse2" />
+    <circle cx="100" cy="100" r="90" class="pulse3" />
+  </g>
+</svg> 

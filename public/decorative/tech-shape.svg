@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .tech-line {
+      stroke: #00ff88;
+      fill: none;
+      stroke-width: 1.5;
+      opacity: 0.7;
+    }
+    .tech-fill {
+      fill: #1a1a1a;
+      stroke: #00ccff;
+      stroke-width: 1;
+      opacity: 0.8;
+    }
+    .tech-accent {
+      stroke: #ff00ff;
+      fill: none;
+      stroke-width: 0.8;
+      opacity: 0.5;
+    }
+    .glow {
+      filter: drop-shadow(0 0 1px #00ff88);
+    }
+  </style>
+  
+  <g class="glow">
+    <!-- Hexagonal outer shape -->
+    <polygon points="100,30 160,65 160,135 100,170 40,135 40,65" class="tech-fill" />
+    
+    <!-- Inner details -->
+    <line x1="100" y1="30" x2="100" y2="170" class="tech-line" />
+    <line x1="40" y1="65" x2="160" y2="135" class="tech-line" />
+    <line x1="40" y1="135" x2="160" y2="65" class="tech-line" />
+    
+    <!-- Inner hexagon -->
+    <polygon points="100,70 130,85 130,115 100,130 70,115 70,85" class="tech-accent" />
+    
+    <!-- Center point -->
+    <circle cx="100" cy="100" r="5" fill="#00ccff" opacity="0.9" />
+  </g>
+</svg> 

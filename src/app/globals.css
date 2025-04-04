@@ -1,26 +1,242 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Tech Theme Colors */
+    --tech-white: #ffffff;
+    --tech-black: #0a0a0a;
+    --tech-charcoal: #1a1a1a;
+    --tech-darkGray: #222222;
+    --tech-silver: #999999;
+    --tech-textLight: #cccccc;
+    --neon-primary: #00ff88;
+    --neon-secondary: #00ccff;
+    --neon-accent: #ff00ff;
+  }
+
+  body {
+    @apply antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container {
+    @apply max-w-[95%] mx-auto px-2 sm:px-3 lg:px-4;
+  }
+
+  .font-display {
+    @apply font-space-grotesk;
+  }
+
+  .font-tech {
+    @apply font-inter;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-tech text-tech-black bg-neon-primary rounded-angular transition-all duration-300 hover:opacity-80 hover:shadow-neon-light;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-tech text-neon-primary bg-transparent border border-neon-primary rounded-angular transition-all duration-300 hover:bg-neon-primary/10;
+  }
+
+  .card {
+    @apply p-4 rounded-angular border border-tech-silver/10 bg-tech-charcoal dark:bg-tech-black transition-all duration-300 hover:border-neon-primary/50;
+  }
+
+  .rounded-angular {
+    @apply rounded-sm;
+  }
+
+  .section-pattern {
+    @apply absolute inset-0 opacity-5;
+  }
+
+  .diagonal-pattern {
+    background-image: url("/patterns/diagonal.svg");
+    background-repeat: repeat;
+    background-size: 20px 20px;
+  }
+
+  .hex-pattern {
+    background-image: url("/patterns/hex.svg");
+    background-repeat: repeat;
+    background-size: 40px 40px;
+  }
+
+  .grid-pattern {
+    background-image: url("/patterns/grid.svg");
+    background-repeat: repeat;
+    background-size: 30px 30px;
+  }
+
+  .circuit-pattern {
+    background-image: url("/patterns/circuit.svg");
+    background-repeat: repeat;
+    background-size: 100px 100px;
+  }
+
+  .dots-pattern {
+    background-image: url("/patterns/dots.svg");
+    background-repeat: repeat;
+    background-size: 15px 15px;
+  }
+
+  .wave-pattern {
+    background-image: url("/patterns/wave.svg");
+    background-repeat: repeat;
+    background-size: 100px 50px;
+  }
+
+  .blueprint-pattern {
+    background-image: url("/patterns/blueprint.svg");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+  }
+
+  .section {
+    @apply relative overflow-hidden;
+  }
+
+  .heading-1 {
+    @apply text-4xl sm:text-5xl font-bold text-tech-black dark:text-tech-textLight relative z-10 mb-6;
+  }
+
+  .heading-2 {
+    @apply text-3xl sm:text-4xl font-bold text-tech-black dark:text-tech-textLight relative z-10 mb-4;
+  }
+
+  .heading-3 {
+    @apply text-2xl sm:text-3xl font-bold text-tech-black dark:text-tech-textLight relative z-10 mb-3;
+  }
+
+  .tech-text {
+    @apply font-tech text-sm tracking-wider text-neon-primary;
+  }
+
+  .tech-card {
+    @apply relative p-6 rounded-angular border border-tech-silver/20 bg-tech-charcoal/80 dark:bg-tech-black/80 transition-all duration-300 hover:border-neon-primary/50 overflow-hidden;
+  }
+
+  .tech-card::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-1 bg-neon-primary opacity-80;
+  }
+
+  .corner-accent {
+    @apply relative;
+  }
+
+  .corner-accent::before {
+    @apply content-[''] absolute top-0 left-0 w-10 h-10 bg-corner-accent bg-no-repeat;
+  }
+
+  .corner-accent::after {
+    @apply content-[''] absolute bottom-0 right-0 w-10 h-10 bg-corner-accent bg-no-repeat transform rotate-180;
+  }
+
+  .corner-gradient {
+    background: radial-gradient(
+      circle at top right,
+      rgba(255, 255, 255, 0.05),
+      transparent 250px
+    );
+  }
+
+  .tech-gradient {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent);
+  }
+}
+
+@layer utilities {
+  .shadow-neon-light {
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+  }
+
+  .shadow-neon-dark {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+  }
+
+  .shadow-neon-secondary {
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+  }
+
+  .shadow-neon-accent {
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+  }
+
+  .text-gradient-green {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-primary to-neon-primary/70;
+  }
+
+  .border-gradient-green {
+    border-image: linear-gradient(
+        to right,
+        var(--neon-primary),
+        var(--neon-primary)
+      )
+      1;
+  }
+
+  .bg-shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .bg-shimmer::after {
+    @apply content-[''] absolute -top-[300%] -left-[150%] w-[400%] h-[400%] bg-gradient-to-r from-transparent via-neon-primary/10 to-transparent opacity-20 transform rotate-45;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  .float-element {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pulse-element {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Animations */
+@keyframes glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px theme("colors.neon.primary"));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px theme("colors.neon.primary"));
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
